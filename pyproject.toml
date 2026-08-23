@@ -17,6 +17,10 @@ dependencies = [
 
 [project.scripts]
 tfl-visualisation = "tfl_visualisation:main"
+write_stations = "tfl_visualisation.db:write_stations"
+read_stations = "tfl_visualisation.db:read_stations"
+delete_stations = "tfl_visualisation.db:delete_stations"
+
 
 [build-system]
 requires = ["uv_build>=0.12.3,<0.13.0"]
