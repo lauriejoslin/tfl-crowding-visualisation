@@ -23,14 +23,15 @@ def read_stations() -> None:
 
     cur.close()
 
-def get_naptans() -> list:
+def get_station_naptans() -> list:
     con = sqlite3.connect("tfl.db")
     cur = con.cursor()
 
     res = cur.execute("SELECT naptan FROM stations")
     rows = res.fetchall()
+    naptans = [row[0] for row in rows]
 
-    return rows
+    return naptans
 
 def delete_stations() -> None:
     con = sqlite3.connect("tfl.db")
