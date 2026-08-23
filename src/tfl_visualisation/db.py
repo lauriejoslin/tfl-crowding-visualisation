@@ -8,7 +8,7 @@ def write_stations() -> None:
     cur = con.cursor()
 
     stations_df = get_all_stations_info()
-    stations_df.to_sql("stations", con=con, index=False)
+    stations_df.to_sql("stations", con, index=False)
 
     con.commit()
 
@@ -47,20 +47,23 @@ def write_naptan_crowding() -> None:
     con = sqlite3.connect("tfl.db")
     cur = con.cursor()
 
-    cur.execute("CREATE TABLE crowding(naptan, crowding_df)")
     naptans = get_station_naptans()
-    naptans = naptans[:50]
 
+    dfs = []
     for n in naptans:
-        crowd_df = get_crowding(n)
+        not_found, crowd_df = get_crowding(n)
+        # Avoid write errors
+        if not_found:
+            continue
 
-        query = """
-            INSERT INTO crowding VALUES
-                ('{naptan}', {crowd_df})
-        """.format(naptan=n, crowd_df=crowd_df)
+        print(f"Successfully obtained crowding data for NaPTaN: {n}")
+        crowd_df["naptan"] = n
+        dfs.append(crowd_df)
 
-        cur.execute(query)
+    stations_crowding_df = pd.concat(dfs, ignore_index=True)
+    stations_crowding_df.to_sql("crowding", con, index=False)
 
+    con.commit()
     cur.close()
 
 def delete_crowding_table() -> None:
@@ -68,5 +71,16 @@ def delete_crowding_table() -> None:
     cur = con.cursor()
 
     cur.execute("DROP TABLE crowding")
+
+    cur.close()
+
+def read_crowding() -> None:
+    con = sqlite3.connect("tfl.db")
+    cur = con.cursor()
+
+    query = "SELECT * FROM crowding"
+    
+    crowding = pd.read_sql(query, con)
+    print(crowding)
 
     cur.close()

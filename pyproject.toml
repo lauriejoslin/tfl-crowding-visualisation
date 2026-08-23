@@ -23,6 +23,7 @@ read_stations = "tfl_visualisation.db:read_stations"
 delete_stations = "tfl_visualisation.db:delete_stations"
 write_crowding = "tfl_visualisation.db:write_naptan_crowding"
 delete_crowding = "tfl_visualisation.db:delete_crowding_table"
+read_crowding = "tfl_visualisation.db:read_crowding"
 
 
 [build-system]
