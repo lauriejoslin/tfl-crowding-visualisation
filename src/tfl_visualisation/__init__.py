@@ -1,9 +1,10 @@
 from .data.get_api_data import get_all_stations_info
 from .data.get_crowding_data import get_crowding
+from .data.get_crowding_data import get_all_crowding_info
 
 def main() -> None:
 
-    print(get_crowding("940GZZLUACT"))
+    print(get_all_crowding_info())
     # Data pipeline: Write (to SQLite Table), Process (Aggregate days and wrangle), Read and Visualise (Plotly)
     '''
     # Something like this

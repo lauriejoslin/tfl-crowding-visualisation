@@ -24,7 +24,6 @@ def get_crowding(naptan):
 
     # Initialise array
     cwd = crowding[0]
-    print(cwd["dayOfWeek"])
     for band in cwd["timeBands"]:
         # Representing an average of each DOW
         crowd_time_bands.append({
@@ -32,7 +31,8 @@ def get_crowding(naptan):
                 "crowdingPercentage": 0.2 * band["percentageOfBaseLine"],
         })
     crowding = crowding[1:]
-                
+
+    # Populate with day of week average            
     for cwd in crowding:
         if cwd["dayOfWeek"] in DOW:
              for i, band in enumerate(cwd["timeBands"]):
