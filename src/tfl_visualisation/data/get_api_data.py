@@ -6,7 +6,6 @@ import pandas as pd
 API_URL = 'https://api.tfl.gov.uk'
 CROWDING_URL = '{API_URL}/crowding/{Naptan}'
 STATION_INFO_URL = '{API_URL}/StopPoint/Mode/tube'
-# Via https://techforum.tfl.gov.uk/t/application-id-and-key/3595 - add into query string
 load_dotenv(); app_key = os.getenv('PRIMARY_KEY')
 DOW = ["TUE", "WED", "THU", "FRI"]
 
@@ -16,7 +15,7 @@ def get_crowding(naptan) -> tuple[bool, pd.DataFrame]:
     data = requests.get(url, params={"app_key": app_key})
 
     if data.status_code != requests.codes.ok:
-        raise ValueError
+        return (True, None)
 
     if not data.json()["isFound"]:
          return (True, None)
@@ -29,6 +28,7 @@ def get_crowding(naptan) -> tuple[bool, pd.DataFrame]:
     for c in crowding:
          if c["dayOfWeek"] == "MON":
               cwd = c
+              break
 
     # Populate dictionary with Monday data
     for band in cwd["timeBands"]:
