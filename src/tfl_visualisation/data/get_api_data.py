@@ -2,7 +2,6 @@ import requests
 import os
 from dotenv import load_dotenv
 import pandas as pd
-import collections
 
 API_URL = 'https://api.tfl.gov.uk'
 CROWDING_URL = '{API_URL}/crowding/{Naptan}'
@@ -49,7 +48,7 @@ def get_crowding(naptan) -> tuple[bool, pd.DataFrame]:
 
     return (False, crowding_df)
 
-def get_all_stations_info():
+def get_all_stations_info() -> pd.DataFrame:
     url = STATION_INFO_URL.format(API_URL=API_URL)
     data = requests.get(url, params={"app_key": app_key})
 

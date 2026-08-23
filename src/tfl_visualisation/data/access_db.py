@@ -1,7 +1,7 @@
 import sqlite3
 import pandas as pd
-from .data.get_api_data import get_all_stations_info
-from .data.get_api_data import get_crowding
+from .get_api_data import get_all_stations_info
+from .get_api_data import get_crowding
 
 def write_stations() -> None:
     con = sqlite3.connect("tfl.db")
@@ -11,7 +11,6 @@ def write_stations() -> None:
     stations_df.to_sql("stations", con, index=False)
 
     con.commit()
-
     cur.close()
 
 def read_stations() -> None:
@@ -40,6 +39,7 @@ def delete_stations() -> None:
     cur = con.cursor()
 
     cur.execute("DROP TABLE stations")
+    con.commit()
 
     cur.close()
 
@@ -71,6 +71,7 @@ def delete_crowding_table() -> None:
     cur = con.cursor()
 
     cur.execute("DROP TABLE crowding")
+    con.commit()
 
     cur.close()
 
