@@ -1,11 +1,12 @@
-from .data.get_api_data import get_all_stations_info
-from .data.get_crowding_data import get_crowding
-from .data.get_crowding_data import get_all_crowding_info
-from .db import get_station_naptans
+from .data.get_api_data import get_all_stations_info, get_crowding
+from .data.access_db import get_station_naptans
+from .mapping.plot_stations import plot_map
 
 def main() -> None:
 
     print(get_station_naptans())
+    plot_map()
+    
     # Data pipeline: Write (to SQLite Table), Process (Aggregate days and wrangle), Read and Visualise (Plotly)
     '''
     # Something like this
