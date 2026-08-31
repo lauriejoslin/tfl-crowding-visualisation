@@ -4,7 +4,6 @@ from .mapping.plot_stations import plot_map
 
 def main() -> None:
 
-    print(get_station_naptans())
     plot_map()
     
     # Data pipeline: Write (to SQLite Table), Process (Aggregate days and wrangle), Read and Visualise (Plotly)

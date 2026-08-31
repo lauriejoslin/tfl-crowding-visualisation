@@ -85,3 +85,16 @@ def read_crowding() -> None:
     print(crowding)
 
     cur.close()
+
+def get_tfl_df() -> None:
+    con = sqlite3.connect("tfl.db")
+    cur = con.cursor()
+
+    stations = pd.read_sql("SELECT * FROM stations", con)
+    crowding = pd.read_sql("SELECT * FROM crowding", con)
+
+    tfl_df = pd.merge(stations, crowding, on="naptan")
+
+    cur.close()
+
+    return tfl_df
