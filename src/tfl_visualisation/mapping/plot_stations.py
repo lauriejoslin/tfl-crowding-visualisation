@@ -21,7 +21,7 @@ def plot_map():
 )
 
     fig.show()
-    fig.write_html("output/visualisation-widget.html")
+    fig.write_html("docs/interactive.html")
 
     return
 
