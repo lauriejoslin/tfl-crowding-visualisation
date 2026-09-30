@@ -1,7 +1,3 @@
-
-
-https://github.com/user-attachments/assets/495ab2e7-42c4-4d53-82e4-0a1da4273140
-
 # Visualisation of London Underground station crowding 
 
 ### Summary
