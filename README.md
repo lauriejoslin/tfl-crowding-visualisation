@@ -2,9 +2,9 @@
 
 ### Summary
 
-This repository utilises the [TfL API](https://api-portal.tfl.gov.uk) to create an interactive map of London showing each underground station's crowdedness over the course of 24 hours. This data is aggregated over the course of the week (Monday - Friday). The aim was to create a natural visualisation which showed spikes in the morning and afternoon when people go to/from work. 
+This repository utilises the TfL API[^1] to create an interactive map of London showing each underground station's crowdedness over the course of 24 hours. This data is aggregated over the course of the week (Monday - Friday). The aim was to create a natural visualisation which showed spikes in the morning and afternoon when people go to/from work. 
 
-The idea behind this was inspired by the idea of [urban metabolism](https://en.wikipedia.org/wiki/Urban_metabolism) and seeing cities as organisms with natural metabolic flows (such as a heartbeat). In this way, I wanted to see if the visualisation showed the heartbeat of London in the morning and afternoon at this macroscopic change
+The idea behind this was inspired by the idea of urban metabolism[^2] and seeing cities as organisms with natural metabolic flows (such as a heartbeat). In this way, I wanted to see if the visualisation showed the heartbeat of London in the morning and afternoon at this macroscopic change
 
 If I were to extend this project, it would be very interesting to see the flow of e-bikes (e.g. Lime bikes) - I can imagine a pulsing effect in and out of the central boroughs over the course of the day.  
 
@@ -35,3 +35,8 @@ Mapping side sqllite3 -> pandas -> join databases -> plotly express
 - Only underground
     - no overground
     - no national rail
+
+### References
+
+[^1]: Access the Tfl API here https://api-portal.tfl.gov.uk
+[^2]: https://en.wikipedia.org/wiki/Urban_metabolism
