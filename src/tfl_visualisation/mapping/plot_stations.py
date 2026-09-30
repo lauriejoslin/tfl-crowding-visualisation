@@ -1,5 +1,4 @@
 import plotly.express as px
-import geopandas as gpd
 from ..data.access_db import get_tfl_df
 
 def plot_map():

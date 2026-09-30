@@ -86,7 +86,7 @@ def read_crowding() -> None:
 
     cur.close()
 
-def get_tfl_df() -> None:
+def get_tfl_df() -> pd.DataFrame:
     con = sqlite3.connect("tfl.db")
     cur = con.cursor()
 
