@@ -1,6 +1,6 @@
-# TfL station crowdedness visualisation
+# London Underground crowding visualisation
 
-### Summary
+## Summary
 
 This repository utilises the TfL API[^1] to create an interactive map of London showing each underground station's crowdedness over the course of 24 hours. This data is aggregated over the course of the week (Monday - Friday). The aim was to create a natural visualisation which showed spikes in the morning and afternoon when people go to/from work. 
 
@@ -12,16 +12,16 @@ I've attached a video here with the link to the interactive version below
 
 https://github.com/user-attachments/assets/495ab2e7-42c4-4d53-82e4-0a1da4273140
 
-[> Open the interactive version](https://lauriejoslin.github.io/tfl-visualisation/interactive.html)
+[**> Open the interactive version**](https://lauriejoslin.github.io/tfl-visualisation/interactive.html)
 
-### How it works
- 
-#### Data processing
+## How it works
+
+### Data processing
 
 Python requests module -> Tfl REST API
 Into pandas -> into sqllite3
 
-#### Mapping
+### Mapping
 
 Out of sqllite3 
 Join dataframes
@@ -36,7 +36,7 @@ Mapping side sqllite3 -> pandas -> join databases -> plotly express
     - no overground
     - no national rail
 
-### References
+## References
 
 [^1]: Access the Tfl API here https://api-portal.tfl.gov.uk
 [^2]: https://en.wikipedia.org/wiki/Urban_metabolism
