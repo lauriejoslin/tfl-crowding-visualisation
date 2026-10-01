@@ -12,7 +12,7 @@ I've attached a video here with the link to the interactive version below
 
 https://github.com/user-attachments/assets/495ab2e7-42c4-4d53-82e4-0a1da4273140
 
-[**> Open the interactive version**](https://lauriejoslin.github.io/tfl-visualisation/interactive.html)
+[**> Open the interactive version**](https://lauriejoslin.github.io/tfl-crowding-visualisation/interactive.html)
 
 ## How it works
 
