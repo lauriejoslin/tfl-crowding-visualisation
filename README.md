@@ -36,7 +36,7 @@ Mapping side sqllite3 -> pandas -> join databases -> plotly express
     - no overground
     - no national rail
 
-## References
+### References
 
 [^1]: Access the Tfl API here https://api-portal.tfl.gov.uk
 [^2]: https://en.wikipedia.org/wiki/Urban_metabolism
